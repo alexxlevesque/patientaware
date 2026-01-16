@@ -1,0 +1,54 @@
+# PATIENT_RECORD (FICTIONAL) — MERGED_EMR+CLINICALCONNECT
+# Format: key:value (compact). Dates=YYYY-MM-DD. Times local (America/Toronto).
+
+PATIENT
+id:P00084721
+name:Chen, Maya
+dob:1994-09-22
+sex:F
+ohip:1234567890 VC:AB
+phone:6475550137
+addr:88 Dundas St W|Unit 1206|Toronto|ON|M5G1C1
+
+EMR_LOCAL_HOSPITAL (St. Anne's Hospital, Toronto)  [most trusted]
+last_seen:2026-01-13
+allergies:penicillin(rash); latex(nkda?=no)
+alerts:fall_risk=no; difficult_airway=no; interpreter=none
+pmhx:asthma(mild); gerd; iron_def_anemia(2022)
+pshx:appendectomy(2012-06-03)
+meds_home_known:salbutamol_inh PRN; pantoprazole 40mg QD
+immunizations_local:covid_primary+booster(2023-11); tetanus_unknown
+
+VISITS_LOCAL (most_recent_first)
+- 2026-01-13 ED  cc:vomiting x5d + chest tightness  dx:pending  dispo:observation
+  vitals:T36.9 HR102 BP118/74 RR18 SpO2 98% RA
+  key_labs:Na136 K3.4 Cr62 urea4.1 WBC11.2 Hb118 Trop<3
+  imaging:ECG sinus_tachy; CXR no_acute
+  tx:IV_fluids; ondansetron; K_replacement
+- 2025-08-09 ED  cc:wheeze  dx:asthma_exacerb  dispo:home  tx:nebs+prednisone
+- 2024-12-02 ED  cc:epigastric_pain  dx:GERD/gastritis  dispo:home  rx:PPI
+
+CLINICALCONNECT / CONNECTINGONTARIO (other sites; may be partial/delayed)
+external_facilities:Sunnybrook(TO); MichaelGarron(TO); Lifelabs
+labs_external (selected)
+- 2025-11-20 Lifelabs: ferritin 8 ug/L (low); B12 310 pmol/L; MCV 78 fL
+- 2025-02-14 Sunnybrook: Hb 110; WBC 6.9; Cr 58; ALT 22
+imaging_reports_external
+- 2025-02-14 Sunnybrook: US abd  impression: no gallstones; mild fatty_liver
+discharge_summaries_external
+- 2023-05-17 MichaelGarron: admit 1d  dx:viral gastroenteritis + dehydration  tx:IVF; antiemetic  outcome:resolved
+specialist_notes_external
+- 2022-10-03 GI clinic letter: reflux symptoms; trial PPI; consider endoscopy if persistent
+
+DRUG_HISTORY (partial; ODB may be incomplete if not eligible)
+odb_status:unknown/not_eligible_likely
+dispense_records_known
+- 2025-12-05 pantoprazole 40mg tabs qty30 (community pharmacy)
+- 2025-08-09 prednisone 50mg tabs qty5 (ED rx)
+
+CURRENT_PRESENTATION_SUMMARY (auto-compiled)
+problem:prolonged vomiting + chest symptoms
+risk_flags:chest_pain=yes; dehydration=possible; gi_bleed=no_reported; pregnancy_status:unknown
+needs_to_confirm:pregnancy/LMP; cardiac_risk_factors; stool/fever; med_adherence; substance_use; vaccine_history; true med list
+
+END
